@@ -48,19 +48,20 @@
 						SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 					String name[] = { "홍길동", "최민수", "김영수", "김아름", "박문수" };
+					String title[]= { "안녕", "오하요", "스미마셍", "곰방와", "곤니찌와" };
 
 					for (int i = 1; i <= 10; i++) {
 						Random random = new Random();
 						int randomInt = random.nextInt(5);
 						String randomName = name[randomInt];
-
+						String randomtitle = title[randomInt];
 						Date now = new Date();
 						String today = format.format(now);
-						String randomTitle = "안녕하세요";
+						
 					%>
 					<tr>
 						<td><%=i%></td>
-						<td><a href="/board/view.jsp"><%=randomTitle%></a></td>
+						<td><a href="/board/view.jsp"><%=randomtitle%></a></td>
 						<td><%=randomName%></td>
 						<td><%=today%></td>
 					</tr>

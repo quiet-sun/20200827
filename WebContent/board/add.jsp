@@ -54,7 +54,8 @@
 
 				</div>
 				<div class="card-footer">
-					<a href="board/list.jsp" class="btn btn-primary"> 목록</a>
+					<a href="/board/list.jsp" class="btn btn-primary"> 목록</a>
+					
 					<div class="float-right">
 						<a href="board/edit.jsp" class="btn btn-warning"> 등록</a>
 						
