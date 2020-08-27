@@ -29,59 +29,43 @@
 <body>
 	<div class="container">
 		<div class="view-box">
-<!-- 글내용 -->
+			<!-- 글내용 -->
 			<div class="card">
-				<h2>
-					<div class="card-header">애국가</div>
-				</h2>
+
 
 				<div class="card-body">
-					<h5 class="card-title">안녕하세요</h5>
+					<form name="addForm" method="post" action="/board/add"></form>
+					<form>
+						<div class="form-group">
+							<label>이름</label> <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>제목</label> <input type="text" class="form-control">
 
-					<p class="card-text">홍길동 2020.08.27</p>
-					<p class="card-text">
-						동해물과 백두산이 마르고 닳도록<br> 하느님이 보우하사 우리나라만세<br> 무궁화 삼천리 화려강산<br>
-						대한 사람 대한으로 길이 보전하세.
-					</p>
+						</div>
+						<div class="form-group">
+							<label>내용</label>
+
+							<textarea class="form-control" rows="10"></textarea>
+						</div>
+
+
+					</form>
 
 				</div>
 				<div class="card-footer">
-					<a href="/board/list.jsp" class="btn btn-primary"> 목록</a>
+					<a href="board/list.jsp" class="btn btn-primary"> 목록</a>
 					<div class="float-right">
-						<a href="board/edit.jsp" class="btn btn-warning"> 수정</a>
-						<button type="button" class="btn btn-danger" data-toggle="modal"
-							data-target="#deleteModal">삭제</button>
-
+						<a href="board/edit.jsp" class="btn btn-warning"> 등록</a>
+						
 					</div>
 				</div>
 			</div>
-			<!-- 댓글 -->
-			
-			
-		</div>
-	</div>
-	<div class="modal" tabindex="-1" id="deleteModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title text-danger">게시글 삭제</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<p class="text-dnager">삭제가 된 내용은 복구가 불가능 합니다.정말 삭제 할까요?</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">취소</button>
 
-					<button type="button" class="btn btn-danger" id="btnDelete">삭제</button>
-				</div>
-			</div>
+
 		</div>
 	</div>
+
 
 	<form id="deleteForm" method="post" action="/board/delete">
 		<input type="hidden" name="board_id">
@@ -107,5 +91,9 @@
 			$('#deleteForm').submit();
 		});
 	</script>
+	<script>
+	$('#btnAdd').on('click',function)(){
+		$('form[name=addForm]').submit();
+	};</script>
 </body>
 </html>

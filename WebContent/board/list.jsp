@@ -1,36 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Random" %> 
-<%@ page import="java.util.Date" %> 
-<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Random"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 
 <!doctype html>
 <html lang="en">
-	<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-		crossorigin="anonymous">
-		
-	<style>
-		.list-box {
-			margin-top: 100px;
-		}
-	</style>
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>게시판 - 목록</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+<style>
+.list-box {
+	margin-top: 100px;
+}
+</style>
+
+<title>게시판 - 목록</title>
 </head>
 <body>
 	<div class="container">
-	
+
 		<div class="list-box">
-			<table class="table table-hover">
+			<div class="card">
+			
+			<div class="card-header">
+			<a href="/board/add.jsp" class ="btn btn-primary">등록</a></div>
+				<div class="card-body"><table class="table table-hover">
 				<thead class="thead-dark">
 					<tr>
 						<th>번호</th>
@@ -41,33 +45,35 @@
 				</thead>
 				<tbody>
 					<%
-						SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
-						
-						String name[] = {"홍길동", "최민수", "김영수", "김아름", "박문수"};
-						
-						for(int i = 1; i <= 10; i++) {
-							Random random = new Random();
-							int randomInt = random.nextInt(5);
-							String randomName = name[randomInt];
-							
-							Date now = new Date();
-							String today = format.format(now);
-							String randomTitle = "안녕하세요";
+						SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+					String name[] = { "홍길동", "최민수", "김영수", "김아름", "박문수" };
+
+					for (int i = 1; i <= 10; i++) {
+						Random random = new Random();
+						int randomInt = random.nextInt(5);
+						String randomName = name[randomInt];
+
+						Date now = new Date();
+						String today = format.format(now);
+						String randomTitle = "안녕하세요";
 					%>
 					<tr>
-						<td><%=i %></td>
-						<td><a href="/firstProject/board/view.jsp"><%=randomTitle %></a></td>
-						<td><%=randomName %></td>
-						<td><%=today %></td>
+						<td><%=i%></td>
+						<td><a href="/board/view.jsp"><%=randomTitle%></a></td>
+						<td><%=randomName%></td>
+						<td><%=today%></td>
 					</tr>
 					<%
 						}
 					%>
 				</tbody>
-			</table>
+			</table></div>
+			</div>
+			
 		</div>
-				
-	</div>	
+
+	</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
